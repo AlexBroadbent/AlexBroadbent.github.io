@@ -1,27 +1,40 @@
-import * as React from 'react'
-import './App.css'
-import { createTheme, CssBaseline, ThemeProvider } from '@mui/material'
-import { yellow, green } from '@mui/material/colors'
-import NavBar from './section/NavBar'
-import '@fontsource/manrope'
+import React from 'react'
+import * as Manrope from '@fontsource/manrope'
+import '@fontsource/montserrat'
+import { createTheme, CssBaseline, responsiveFontSizes, ThemeProvider } from '@mui/material'
+import myPalette from './style/palette'
+import { fonts } from './style/font'
+import Homepage from './Homepage'
 
 function App() {
-  const theme = createTheme({
-    palette: {
-      primary: green,
-      secondary: yellow
-    },
+  const theme = createTheme(createTheme(), {
+    palette: myPalette(),
     typography: {
-      fontFamily: 'manrope'
+      fontFamily: fonts
+    },
+    components: {
+      MuiTypography: {
+        fontFamily: fonts,
+        styleOverrides: {
+          root: {
+            fontFamily: fonts
+          }
+        }
+      },
+      MuiCssBaseline: {
+        fontFamily: fonts,
+        styleOverrides: Manrope
+      }
+    },
+    shape: {
+      borderRadius: 5
     }
   })
 
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={responsiveFontSizes(theme)}>
       <CssBaseline />
-      <NavBar>
-        <p>Hello World</p>
-      </NavBar>
+      <Homepage />
     </ThemeProvider>
   )
 }
