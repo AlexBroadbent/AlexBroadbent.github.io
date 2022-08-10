@@ -1,40 +1,30 @@
 import React from 'react'
-import { createStyles, makeStyles } from '@mui/styles'
-import { Stack } from '@mui/material'
-import TestimonialItem from './TestimonialItem'
+import Typography from '@mui/material/Typography'
+import { TestimonialItem } from './TestimonialItem'
+import { Section } from '../../component'
 
-const useStyles = makeStyles((theme) =>
-  createStyles({
-    root: {
-      margin: theme.spacing(1)
-    },
-    text: {
-      fontWeight: 500
-    }
-  })
-)
-
-function Testimonials() {
-  const classes = useStyles()
-
+export function Testimonials() {
   return (
-    <Stack direction="column" alignItems="center" justifyContent="center" className={classes.root}>
+    <Section title="Testimonials">
       <TestimonialItem
         client="Handmade in Harpenden"
         name="Farhana Haque"
-        imageUrl="https://images.squarespace-cdn.com/content/v1/5cf845ccf67cc80001c438b1/1601892092854-YY9N4E7GOPN6X1MC5NWT/imgonline-com-ua-compressed-fuI2om7Ujands.jpg?format=1500w"
+        position="Founder"
+        imageUrl="farhana-haque.jpeg"
         website="https://handmadeinharpenden.com"
       >
-        .........................................................................................
-        .........................................................................................
-        .........................................................................................
-        .........................................................................................
-        .........................................................................................
-        .........................................................................................
-        .........................................................................................
+        <Typography variant="body1" paragraph>
+          Alex listened to the problems that I was trying to solve for, he took the time to fully
+          understand what I needed and found the best solution that fit our budget. He delivered a
+          bespoke solution to our needs within the time frame that he estimated and delivered some
+          additional features afterwards.
+        </Typography>
+        <Typography variant="body1">
+          The dashboard that Alex built saves us a lot of time in having to go through all our
+          different sources of income to work out how well we&apos;re doing and if we&apos;re on
+          target, giving us more time to focus and be productive.
+        </Typography>
       </TestimonialItem>
-    </Stack>
+    </Section>
   )
 }
-
-export default Testimonials

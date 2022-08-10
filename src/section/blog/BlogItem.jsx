@@ -1,9 +1,9 @@
 import React from 'react'
-import Image from 'mui-image'
 import PropTypes from 'prop-types'
-import { createStyles, makeStyles } from '@mui/styles'
-import { CardActions, CardContent, Grid, Paper, Typography } from '@mui/material'
-import ButtonLink from '../../component/ButtonLink'
+import makeStyles from '@mui/styles/makeStyles'
+import createStyles from '@mui/styles/createStyles'
+import Typography from '@mui/material/Typography'
+import { ListSectionItem, ButtonLink } from '../../component'
 
 const useStyles = makeStyles((theme) =>
   createStyles({
@@ -22,10 +22,11 @@ const useStyles = makeStyles((theme) =>
       fontWeight: 700
     },
     subtitle: {
-      padding: theme.spacing(1, 0),
+      padding: theme.spacing(1),
       fontWeight: 600
     },
     text: {
+      padding: theme.spacing(1),
       paddingBottom: theme.spacing(2),
       fontWeight: 500
     }
@@ -40,32 +41,21 @@ BlogItem.propTypes = {
   children: PropTypes.node.isRequired
 }
 
-function BlogItem({ title, image, created, children, link }) {
+export default function BlogItem({ title, image, created, children, link }) {
   const classes = useStyles()
 
   return (
-    <Paper component={Grid} container className={classes.card} elevation={3}>
-      <Grid item xs={3}>
-        <Image component="img" sx={{ width: 150, height: 150 }} src={image} alt={title} />
-      </Grid>
-      <Grid item xs={9}>
-        <CardContent className={classes.content}>
-          <Typography variant="h5" className={classes.title}>
-            {title}
-          </Typography>
-          <Typography variant="subtitle2" className={classes.subtitle}>
-            {created}
-          </Typography>
-          <Typography variant="body2" className={classes.text}>
-            {children}
-          </Typography>
-          <CardActions>
-            <ButtonLink href={link}>Read on Medium</ButtonLink>
-          </CardActions>
-        </CardContent>
-      </Grid>
-    </Paper>
+    <ListSectionItem
+      title={title}
+      image={image}
+      actions={<ButtonLink href={link}>Read the full post on Medium</ButtonLink>}
+    >
+      <Typography variant="subtitle2" className={classes.subtitle}>
+        {created}
+      </Typography>
+      <Typography variant="body2" className={classes.text}>
+        {children}
+      </Typography>
+    </ListSectionItem>
   )
 }
-
-export default BlogItem

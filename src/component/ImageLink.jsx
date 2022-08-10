@@ -1,8 +1,10 @@
 import React from 'react'
-import { Link, Typography } from '@mui/material'
-import { createStyles, makeStyles } from '@mui/styles'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import PropTypes from 'prop-types'
+import Link from '@mui/material/Link'
+import Typography from '@mui/material/Typography'
+import makeStyles from '@mui/styles/makeStyles'
+import createStyles from '@mui/styles/createStyles'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const useStyles = makeStyles((theme) =>
   createStyles({
@@ -16,21 +18,17 @@ const useStyles = makeStyles((theme) =>
   })
 )
 
-ContactLink.propTypes = {
-  icon: PropTypes.node.isRequired,
-  link: PropTypes.string.isRequired,
-  children: PropTypes.string.isRequired
+ImageLink.propTypes = {
+  icon: PropTypes.any.isRequired,
+  link: PropTypes.string.isRequired
 }
 
-function ContactLink({ icon, link, children }) {
+export function ImageLink({ icon, link }) {
   const classes = useStyles()
 
   return (
     <Typography variant="h3" className={classes.root} component={Link} href={link}>
       <FontAwesomeIcon className={classes.icon} icon={icon} />
-      {children}
     </Typography>
   )
 }
-
-export default ContactLink

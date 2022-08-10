@@ -1,15 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {
-  TimelineConnector,
-  TimelineContent,
-  TimelineDot,
-  TimelineItem,
-  TimelineOppositeContent,
-  TimelineSeparator
-} from '@mui/lab'
-import { Link, Typography } from '@mui/material'
-import { createStyles, makeStyles } from '@mui/styles'
+import makeStyles from '@mui/styles/makeStyles'
+import createStyles from '@mui/styles/createStyles'
+import Link from '@mui/material/Link'
+import Typography from '@mui/material/Typography'
+import TimelineDot from '@mui/lab/TimelineDot'
+import TimelineItem from '@mui/lab/TimelineItem'
+import TimelineContent from '@mui/lab/TimelineContent'
+import TimelineConnector from '@mui/lab/TimelineConnector'
+import TimelineSeparator from '@mui/lab/TimelineSeparator'
+import TimelineOppositeContent from '@mui/lab/TimelineOppositeContent'
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -30,7 +30,7 @@ JourneyItem.propTypes = {
   children: PropTypes.node.isRequired
 }
 
-function JourneyItem(props) {
+export function JourneyItem(props) {
   const classes = useStyles()
 
   return (
@@ -56,5 +56,3 @@ function JourneyItem(props) {
     </TimelineItem>
   )
 }
-
-export default JourneyItem

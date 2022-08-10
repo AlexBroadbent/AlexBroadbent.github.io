@@ -1,51 +1,14 @@
+import grey from '@mui/material/colors/grey'
+import lightBlue from '@mui/material/colors/lightBlue'
+import teal from '@mui/material/colors/teal'
+
 function myPalette() {
   return {
-    // mode: darkMode ? 'dark' : 'light',
-    // ...(darkMode
-    //   ? {
-    primary: {
-      main: '#ffc400',
-      light: '#fff64f',
-      dark: '#c79400',
-      contrastText: '#000'
-    },
-    secondary: {
-      main: '#1b5e20',
-      light: '#4c8c4a',
-      dark: '#003300',
-      contrastText: '#fff'
-    },
+    primary: teal,
+    secondary: lightBlue,
     background: {
-      default: '#000',
-      paper: '#303030'
-    },
-    text: {
-      primary: '#fff',
-      secondary: '#aaa'
+      paper: grey['200']
     }
-    //   }
-    // : {
-    //     primary: {
-    //       main: '#1b5e20',
-    //       light: '#4c8c4a',
-    //       dark: '#003300',
-    //       contrastText: '#fff'
-    //     },
-    //     secondary: {
-    //       main: '#ffc400',
-    //       light: '#fff64f',
-    //       dark: '#c79400',
-    //       contrastText: '#000'
-    //     },
-    //     background: {
-    //       default: '#fff',
-    //       paper: '#ddd'
-    //     },
-    //     text: {
-    //       primary: '#000',
-    //       secondary: '#222'
-    //     }
-    //   })
   }
 }
 

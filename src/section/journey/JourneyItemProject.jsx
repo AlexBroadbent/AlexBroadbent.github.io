@@ -1,19 +1,23 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {
-  TimelineConnector,
-  TimelineContent,
-  TimelineDot,
-  TimelineItem,
-  TimelineOppositeContent,
-  TimelineSeparator
-} from '@mui/lab'
-import { CardActions, Typography } from '@mui/material'
-import { createStyles, makeStyles } from '@mui/styles'
-import ButtonLink from '../../component/ButtonLink'
+import makeStyles from '@mui/styles/makeStyles'
+import createStyles from '@mui/styles/createStyles'
+import Typography from '@mui/material/Typography'
+import CardActions from '@mui/material/CardActions'
+import TimelineDot from '@mui/lab/TimelineDot'
+import TimelineItem from '@mui/lab/TimelineItem'
+import TimelineContent from '@mui/lab/TimelineContent'
+import TimelineConnector from '@mui/lab/TimelineConnector'
+import TimelineSeparator from '@mui/lab/TimelineSeparator'
+import TimelineOppositeContent from '@mui/lab/TimelineOppositeContent'
+import { ButtonLink } from '../../component'
 
 const useStyles = makeStyles((theme) =>
   createStyles({
+    content: {
+      paddingTop: 0,
+      paddingBottom: theme.spacing(3)
+    },
     title: {
       fontWeight: 700,
       paddingBottom: theme.spacing(1)
@@ -29,7 +33,7 @@ JourneyItemProject.propTypes = {
   children: PropTypes.node
 }
 
-function JourneyItemProject({ time, title, link, linkText, children }) {
+export function JourneyItemProject({ time, title, link, linkText, children }) {
   const classes = useStyles()
 
   return (
@@ -41,7 +45,7 @@ function JourneyItemProject({ time, title, link, linkText, children }) {
         <TimelineDot color="warning" />
         <TimelineConnector />
       </TimelineSeparator>
-      <TimelineContent>
+      <TimelineContent className={classes.content}>
         <Typography variant="h5" className={classes.title}>
           {title}
         </Typography>
@@ -53,5 +57,3 @@ function JourneyItemProject({ time, title, link, linkText, children }) {
     </TimelineItem>
   )
 }
-
-export default JourneyItemProject

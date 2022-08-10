@@ -1,7 +1,9 @@
 import React from 'react'
-import { TimelineDot } from '@mui/lab'
-import { Grid, Typography } from '@mui/material'
-import { createStyles, makeStyles } from '@mui/styles'
+import makeStyles from '@mui/styles/makeStyles'
+import createStyles from '@mui/styles/createStyles'
+import TimelineDot from '@mui/lab/TimelineDot'
+import Grid from '@mui/material/Grid'
+import Typography from '@mui/material/Typography'
 
 const useStyles = makeStyles((theme) =>
   createStyles({
@@ -15,7 +17,7 @@ const useStyles = makeStyles((theme) =>
   })
 )
 
-function JourneyLegend() {
+export function JourneyLegend() {
   const classes = useStyles()
 
   return (
@@ -32,12 +34,10 @@ function JourneyLegend() {
       <Typography variant="p" className={classes.label}>
         Projects
       </Typography>
-      <TimelineDot color="primary" className={classes.key} />
+      <TimelineDot color="success" className={classes.key} />
       <Typography variant="p" className={classes.label}>
         Education
       </Typography>
     </Grid>
   )
 }
-
-export default JourneyLegend

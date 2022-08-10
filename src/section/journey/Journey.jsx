@@ -1,39 +1,36 @@
 import React from 'react'
-import { Timeline } from '@mui/lab'
-import { Box, Typography } from '@mui/material'
-import { createStyles, makeStyles } from '@mui/styles'
-import JourneyItemPerm from './JourneyItemPerm'
-import JourneyItemProject from './JourneyItemProject'
-import JourneyItemContract from './JourneyItemContract'
-import JourneyItemEducation from './JourneyItemEducation'
-import TextLink from '../../component/TextLink'
-import JourneyLegend from './JourneyLegend'
+import makeStyles from '@mui/styles/makeStyles'
+import createStyles from '@mui/styles/createStyles'
+import Timeline from '@mui/lab/Timeline'
+import Typography from '@mui/material/Typography'
+import { JourneyLegend } from './JourneyLegend'
+import { JourneyItemContract } from './JourneyItemContract'
+import { JourneyItemPerm } from './JourneyItemPerm'
+import { JourneyItemEducation } from './JourneyItemEducation'
+import { JourneyItemProject } from './JourneyItemProject'
+import { Section, TextLink } from '../../component'
 
 const useStyles = makeStyles((theme) =>
   createStyles({
-    root: {
-      paddingTop: theme.spacing(2)
-    },
     paragraph: {
-      fontWeight: 600,
       paddingBottom: theme.spacing(1)
     }
   })
 )
 
-function Journey() {
+export function Journey() {
   const classes = useStyles()
 
   return (
-    <Box className={classes.root}>
+    <Section title="Journey">
       <JourneyLegend />
 
       <Timeline>
         <JourneyItemContract
-          time="Aug 2021"
           client="Handmade in Harpenden"
+          time="Aug 2021"
           title="Dashboard"
-          techStack="NodeJS, TypeScript, React, JavaScript, Google Cloud Platform, Serverless, Google Firebase, Google Firestore, Google Cloud Functions, Jest"
+          techStack="NodeJS, TypeScript, React, JavaScript, Google Cloud Platform, Google Firebase, Google Firestore, Google Cloud Functions, Jest, Yarn, Git"
         >
           <Typography variant="body2" className={classes.paragraph}>
             A portal for combining all sources of income into a single dashboard. As a small
@@ -71,10 +68,14 @@ function Journey() {
             developers.
           </Typography>
           <Typography variant="body2" className={classes.paragraph}>
-            My posts have been published from within my previous workplaces and have been published
-            in Medium publications, such as{' '}
+            My posts have been published from my previous workplaces and personal projects, and have
+            been published in Medium publications such as{' '}
             <TextLink href="https://medium.com/interviewnoodle/levels-of-a-software-engineer-interview-c4abc78c4d">
               Interview Noodle
+            </TextLink>{' '}
+            and{' '}
+            <TextLink href="https://blog.devgenius.io/writing-a-dsl-in-kotlin-42a9029b93a6">
+              Dev Genius
             </TextLink>
             .
           </Typography>
@@ -119,6 +120,7 @@ function Journey() {
           time="Jul 2016"
           title="Finished Studies"
           school="Queen Mary, University of London"
+          sx={{ pb: 2 }}
         >
           <Typography variant="body2" className={classes.paragraph}>
             Graduated with 2:1 (with honours)
@@ -141,8 +143,6 @@ function Journey() {
           </Typography>
         </JourneyItemEducation>
       </Timeline>
-    </Box>
+    </Section>
   )
 }
-
-export default Journey

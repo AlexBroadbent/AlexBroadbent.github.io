@@ -1,12 +1,13 @@
 import React from 'react'
 import * as Manrope from '@fontsource/manrope'
 import '@fontsource/montserrat'
-import { createTheme, CssBaseline, responsiveFontSizes, ThemeProvider } from '@mui/material'
+import CssBaseline from '@mui/material/CssBaseline'
+import { createTheme, responsiveFontSizes, ThemeProvider } from '@mui/material'
 import myPalette from './style/palette'
 import { fonts } from './style/font'
-import Homepage from './Homepage'
+import { Homepage } from './Homepage'
 
-function App() {
+export function App() {
   const theme = createTheme(createTheme(), {
     palette: myPalette(),
     typography: {
@@ -24,10 +25,15 @@ function App() {
       MuiCssBaseline: {
         fontFamily: fonts,
         styleOverrides: Manrope
+      },
+      MuiButton: {
+        styleOverrides: {
+          padding: 0
+        }
       }
     },
     shape: {
-      borderRadius: 5
+      borderRadius: 10
     }
   })
 
@@ -38,5 +44,3 @@ function App() {
     </ThemeProvider>
   )
 }
-
-export default App

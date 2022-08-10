@@ -4,15 +4,17 @@ import { Button, Link } from '@mui/material'
 
 ButtonLink.propTypes = {
   href: PropTypes.string.isRequired,
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
+  internal: PropTypes.bool
 }
 
-function ButtonLink({ href, children }) {
+export function ButtonLink({ href, children, internal }) {
+  const target = internal ? '' : '_blank'
+  const rel = internal ? '' : 'noopener'
+
   return (
-    <Button component={Link} href={href} target="_blank" rel="noopener">
+    <Button variant="outlined" component={Link} href={href} target={target} rel={rel}>
       {children}
     </Button>
   )
 }
-
-export default ButtonLink
