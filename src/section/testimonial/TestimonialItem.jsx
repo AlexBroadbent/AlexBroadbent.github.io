@@ -12,13 +12,13 @@ const useStyles = makeStyles((theme) =>
     quote: {
       color: theme.palette.text.secondary,
       marginBlockStart: theme.spacing(2),
-      marginBlockEnd: theme.spacing(2),
-      marginInlineStart: theme.spacing(2),
+      marginBlockEnd: theme.spacing(1),
+      marginInlineStart: theme.spacing(1),
       marginInlineEnd: theme.spacing(2)
     },
     signature: {
       color: theme.palette.grey[800],
-      marginLeft: theme.spacing(1)
+      marginBottom: theme.spacing(2)
     }
   })
 )

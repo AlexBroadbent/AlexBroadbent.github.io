@@ -11,7 +11,8 @@ const useStyles = makeStyles((theme) =>
       paddingTop: theme.spacing(1)
     },
     content: {
-      padding: theme.spacing(1)
+      paddingTop: theme.spacing(1),
+      paddingBottom: theme.spacing(1)
     }
   })
 )
@@ -23,20 +24,21 @@ export function Portfolio() {
     <Section title="Portfolio">
       <ListSectionItem image="dashboard.png" title="Handmade in Harpenden Dashboard">
         <Typography variant="body2" className={classes.content}>
-          The client had many sources of income which made it hard to see how their business was
-          performing. A bespoke dashboard was created to account for all the business logic required
-          to calculate the current total income for the business.
+          The client had many sources of income which made it hard to see how well their business is
+          performing in real time. A bespoke dashboard was created to account for all the business
+          logic required to calculate the current total income for the business from different
+          revenue streams, covering B2B, B2C, online, in store and via third party marketplaces.
         </Typography>
         <Typography variant="body2" className={classes.content}>
-          The project required writing a set of serverless functions in Google Cloud Platform and a
-          website written in React.
+          The project required writing a set of serverless functions in Google Cloud Platform for
+          the backend and a bespoke website written in React for the frontend.
         </Typography>
       </ListSectionItem>
       <ListSectionItem
         image="money.png"
         title="Money Library"
         actions={
-          <Stack spacing={1} className={classes.linkStack}>
+          <Stack direction={{ xs: 'column', md: 'row' }} spacing={1} className={classes.linkStack}>
             <ButtonLink href="https://github.com/AlexBroadbent/money">
               View Source Code on GitHub
             </ButtonLink>
@@ -67,7 +69,7 @@ export function Portfolio() {
         image="jackson-dsl-2.png"
         title="JSON DSL"
         actions={
-          <Stack spacing={1} className={classes.linkStack}>
+          <Stack direction={{ xs: 'column', md: 'row' }} spacing={1} className={classes.linkStack}>
             <ButtonLink href="https://github.com/AlexBroadbent/json-dsl">
               View Source Code on GitHub
             </ButtonLink>
@@ -90,7 +92,7 @@ export function Portfolio() {
         image="timestamp-generator.png"
         title="Timestamp Generator Plugin"
         actions={
-          <Stack spacing={1} className={classes.linkStack}>
+          <Stack direction={{ xs: 'column', md: 'row' }} spacing={1} className={classes.linkStack}>
             <ButtonLink href="https://github.com/AlexBroadbent/timestamp-generator-plugin">
               View Source Code on GitHub
             </ButtonLink>

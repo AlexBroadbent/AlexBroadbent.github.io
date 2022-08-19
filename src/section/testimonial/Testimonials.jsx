@@ -14,15 +14,13 @@ export function Testimonials() {
         website="https://handmadeinharpenden.com"
       >
         <Typography variant="body1" paragraph>
-          Alex listened to the problems that I was trying to solve for, he took the time to fully
-          understand what I needed and found the best solution that fit our budget. He delivered a
-          bespoke solution to our needs within the time frame that he estimated and delivered some
-          additional features afterwards.
-        </Typography>
-        <Typography variant="body1">
-          The dashboard that Alex built saves us a lot of time in having to go through all our
-          different sources of income to work out how well we&apos;re doing and if we&apos;re on
-          target, giving us more time to focus and be productive.
+          Alex has been great to work with in building a fully bespoke sales and target tracking
+          dashboard. He is extremely patient and understanding, with an exceptional ability to
+          convert technical knowledge into business speak. He kept us in the loop with progress
+          during the project and provided regular updates for feedback. The whole team now use the
+          dashboard he built us every single day as our single source of truth, which helps us
+          monitor team targets and decide strategy in real time to keep on target before each month
+          ends.
         </Typography>
       </TestimonialItem>
     </Section>
