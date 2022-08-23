@@ -1,10 +1,21 @@
 import React from 'react'
+import Box from '@mui/material/Box'
 import BlogItem from './BlogItem'
-import { Section } from '../../component'
+import { ButtonLink, Section } from '../../component'
 
 function Blog() {
   return (
     <Section title="Blog">
+      <BlogItem
+        title="Learnings from Devoxx 2022"
+        image="https://miro.medium.com/fit/c/224/224/1*r-OZRSCDHsWHHSN8sLp7nw.jpeg"
+        created="Aug 19, 2022"
+        link="https://alex-broadbent.medium.com/learnings-from-devoxx-2022-27fe6d6b4d25"
+      >
+        Here are my highlights from this year’s conference if you missed it. It’s clear there has
+        been a lot of excitement around the future of Java version 18 and this conference was no
+        java.lang.Exception! I had the pleasure of attending…
+      </BlogItem>
       <BlogItem
         title="Writing an IntelliJ Plugin for Inserting Timestamps"
         image="https://miro.medium.com/fit/c/224/224/0*Q_vcCH6CFOd-1qGd"
@@ -28,17 +39,6 @@ function Blog() {
         too many times…
       </BlogItem>
       <BlogItem
-        title="Publishing an anti-bikeshedding money library to Maven Central"
-        image="https://miro.medium.com/freeze/fit/c/224/224/0*K__J8gbBUU5Z3_m0.gif"
-        created="Nov 25, 2021"
-        link="https://alex-broadbent.medium.com/publishing-an-anti-bikeshedding-money-library-to-maven-central-c997a7ce97a3"
-      >
-        Every company that I have worked at represents and handles Money in different ways. I
-        thought that there should be a simple library that allows for anti-bikeshedding when using
-        Money within an organisation. Whilst the notion of storing an amount of money is simple,
-        there are…
-      </BlogItem>
-      <BlogItem
         title="Levels of a Software Engineer"
         image="https://miro.medium.com/fit/c/224/224/0*B96zvzsj-DG1bMbw"
         created="Aug 6, 2021"
@@ -47,16 +47,6 @@ function Blog() {
         There are different types of questions that are asked in Software Engineering interviews
         which are aimed to only be answered by more experienced developers and then there are
         questions that differentiate candidates based on the detail they give…
-      </BlogItem>
-      <BlogItem
-        title="Integrating with a third-party SOAP API from Serverless Cloud Functions"
-        image="https://miro.medium.com/fit/c/224/224/0*DaZl0-hLsJHsF4PK"
-        created="May 14, 2021"
-        link="https://medium.com/@alex-broadbent/integrating-with-a-third-party-soap-api-from-serverless-cloud-functions-e5974ade0ca9"
-      >
-        Integrating with external APIs should be a simple task for any software engineer, almost all
-        companies will rely on external parties or integrations which means that writing an
-        integration should be a simple task…
       </BlogItem>
       <BlogItem
         title="Transitioning from Backend to Full-Stack Development"
@@ -68,28 +58,12 @@ function Blog() {
         challenges when moving from a backend engineer position at Flux to a full-stack engineer
         role at Freetrade (where I currently work)…
       </BlogItem>
-      <BlogItem
-        title="My Experience in Improving On-Call Processes"
-        image="https://miro.medium.com/fit/c/224/224/0*gpI2CkrYQAxsnQ3D"
-        created="Feb 24, 2021"
-        link="https://medium.com/@alex-broadbent/my-experience-in-improving-on-call-processes-bc6c73e5ed91"
-      >
-        Since working at startups involves working all hours of the day and night, I have worked
-        on-call in some capacity at each company that I have worked at. There are good and bad
-        processes to take in setting up the process and I hope that my experiences shared here will
-        be of some help in lessening the burden…
-      </BlogItem>
-      <BlogItem
-        title="How we use feature flagging in client apps at Freetrade"
-        image="https://miro.medium.com/fit/c/224/224/1*DGYcwBkoWloGZ-vV4W02tA.jpeg"
-        created="Feb 14, 2021"
-        link="https://medium.com/@alex-broadbent/how-we-use-feature-flagging-in-client-apps-at-freetrade-accd78947fcb"
-      >
-        We use feature flags to be able to quickly and safely develop features without disrupting
-        other teams at Freetrade. While making changes on the Android and iOS apps we will enable
-        features only for staff and our beta testers so we can get feedback in our live environment
-        as we develop them…
-      </BlogItem>
+
+      <Box sx={{ pt: 3, pb: 3, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        <ButtonLink href="https://alex-broadbent.medium.com">
+          View all my Blog Posts on Medium
+        </ButtonLink>
+      </Box>
     </Section>
   )
 }
