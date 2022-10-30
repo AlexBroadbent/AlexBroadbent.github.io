@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Paper from '@mui/material/Paper'
+import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 import makeStyles from '@mui/styles/makeStyles'
 import createStyles from '@mui/styles/createStyles'
@@ -27,7 +27,7 @@ export function Section({ title, children }) {
   const classes = useStyles()
 
   return (
-    <Paper className={classes.section} elevation={5}>
+    <Box className={classes.section} elevation={5}>
       {title && (
         <Typography
           variant="h3"
@@ -39,6 +39,6 @@ export function Section({ title, children }) {
         </Typography>
       )}
       {children}
-    </Paper>
+    </Box>
   )
 }

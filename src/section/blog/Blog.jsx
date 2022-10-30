@@ -3,9 +3,18 @@ import Box from '@mui/material/Box'
 import BlogItem from './BlogItem'
 import { ButtonLink, Section } from '../../component'
 
-function Blog() {
+export function Blog() {
   return (
     <Section title="Blog">
+      <BlogItem
+        title="Building a Custom Finance Dashboard Using Multiple Payment Provider APIs"
+        image="https://miro.medium.com/fit/c/224/224/1*IfnVNVWRyiywAW4iM0BGvg.png"
+        created="Oct 16, 2022"
+        link="https://alex-broadbent.medium.com/building-a-custom-finance-dashboard-using-multiple-payment-provider-apis-1fbb25673420"
+      >
+        The client, Handmade in Harpenden, have multiple streams of revenue, varying from B2C and
+        B2B, which made it difficult for the team to capture accurate sales in real time…
+      </BlogItem>
       <BlogItem
         title="Learnings from Devoxx 2022"
         image="https://miro.medium.com/fit/c/224/224/1*r-OZRSCDHsWHHSN8sLp7nw.jpeg"
@@ -67,5 +76,3 @@ function Blog() {
     </Section>
   )
 }
-
-export default Blog

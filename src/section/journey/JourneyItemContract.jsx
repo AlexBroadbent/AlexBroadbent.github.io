@@ -13,8 +13,8 @@ import TimelineOppositeContent from '@mui/lab/TimelineOppositeContent'
 const useStyles = makeStyles((theme) =>
   createStyles({
     content: {
-      paddingTop: 0,
-      paddingBottom: theme.spacing(2)
+      paddingTop: '0 !important',
+      marginBottom: `${theme.spacing(4)} !important`
     },
     title: {
       fontWeight: 700,
@@ -32,7 +32,7 @@ JourneyItemContract.propTypes = {
   time: PropTypes.string.isRequired,
   client: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  techStack: PropTypes.string,
+  techStack: PropTypes.arrayOf(PropTypes.string),
   children: PropTypes.node
 }
 
@@ -41,7 +41,7 @@ export function JourneyItemContract({ time, client, title, techStack, children }
 
   return (
     <TimelineItem>
-      <TimelineOppositeContent variant="body2" color="text.secondary" sx={{ flex: 0.2 }}>
+      <TimelineOppositeContent variant="body2" color="text.secondary" sx={{ flex: 0.12 }}>
         {time}
       </TimelineOppositeContent>
       <TimelineSeparator>
@@ -57,11 +57,11 @@ export function JourneyItemContract({ time, client, title, techStack, children }
 
         {techStack && (
           <>
-            <Typography variant="body2" className={classes.subtitle}>
+            <Typography variant="body2" className={classes.subtitle} fontWeight="700">
               Tech Stack
             </Typography>
-            <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-              {techStack}
+            <Typography variant="body2" sx={{ color: 'text.secondary', ml: 2 }}>
+              {techStack.join(', ')}
             </Typography>
           </>
         )}

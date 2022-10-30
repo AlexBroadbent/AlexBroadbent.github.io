@@ -1,49 +1,17 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import makeStyles from '@mui/styles/makeStyles'
-import createStyles from '@mui/styles/createStyles'
-import List from '@mui/material/List'
-import Typography from '@mui/material/Typography'
-import CardActions from '@mui/material/CardActions'
-import ListItemText from '@mui/material/ListItemText'
+import TimelineConnector from '@mui/lab/TimelineConnector'
+import TimelineContent from '@mui/lab/TimelineContent'
 import TimelineDot from '@mui/lab/TimelineDot'
 import TimelineItem from '@mui/lab/TimelineItem'
-import TimelineContent from '@mui/lab/TimelineContent'
-import TimelineConnector from '@mui/lab/TimelineConnector'
-import TimelineSeparator from '@mui/lab/TimelineSeparator'
 import TimelineOppositeContent from '@mui/lab/TimelineOppositeContent'
-import { ButtonLink } from '../../component'
+import TimelineSeparator from '@mui/lab/TimelineSeparator'
+import { Link } from '@mui/material'
+import CardActions from '@mui/material/CardActions'
+import List from '@mui/material/List'
+import ListItemText from '@mui/material/ListItemText'
+import Typography from '@mui/material/Typography'
+import PropTypes from 'prop-types'
 
-const useStyles = makeStyles((theme) =>
-  createStyles({
-    content: {
-      paddingTop: 0,
-      paddingBottom: theme.spacing(2)
-    },
-    title: {
-      fontWeight: 700,
-      paddingBottom: theme.spacing(1)
-    },
-    subtitle: {
-      paddingTop: theme.spacing(1),
-      paddingBottom: theme.spacing(0.5),
-      fontWeight: 600
-    }
-  })
-)
-
-JourneyItemPerm.propTypes = {
-  company: PropTypes.string.isRequired,
-  time: PropTypes.string.isRequired,
-  location: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  responsibilities: PropTypes.array,
-  techStack: PropTypes.string,
-  website: PropTypes.string.isRequired,
-  children: PropTypes.node
-}
-
-export function JourneyItemPerm({
+export const JourneyItemPerm = ({
   company,
   time,
   location,
@@ -52,67 +20,77 @@ export function JourneyItemPerm({
   techStack,
   website,
   children
-}) {
-  const classes = useStyles()
+}) => (
+  <TimelineItem>
+    <TimelineOppositeContent variant="body2" color="text.secondary" sx={{ flex: 0.12 }}>
+      {time}
+    </TimelineOppositeContent>
+    <TimelineSeparator>
+      <TimelineDot color="secondary" />
+      <TimelineConnector />
+    </TimelineSeparator>
+    <TimelineContent sx={{ pt: 0, mb: 4 }}>
+      <Typography variant="h5" sx={{ fontWeight: 'bold' }} gutterBottom>
+        {company}
+      </Typography>
+      <Typography variant="body1">{title}</Typography>
+      <Typography variant="body1" gutterBottom>
+        {location}
+      </Typography>
 
-  return (
-    <TimelineItem>
-      <TimelineOppositeContent variant="body2" color="text.secondary" sx={{ flex: 0.2 }}>
-        {time}
-      </TimelineOppositeContent>
-      <TimelineSeparator>
-        <TimelineDot color="secondary" />
-        <TimelineConnector />
-      </TimelineSeparator>
-      <TimelineContent className={classes.content}>
-        <Typography variant="h5" className={classes.title}>
-          {company}
-        </Typography>
-        <Typography variant="body1">{title}</Typography>
-        <Typography variant="body2">{location}</Typography>
+      {responsibilities && (
+        <>
+          <Typography variant="body2" sx={{ pt: 1, fontWeight: 'bold' }}>
+            Responsibilities
+          </Typography>
+          <Typography variant="body2" component={List} sx={{ paddingTop: 0 }}>
+            {responsibilities.map((responsibility) => (
+              <Typography
+                variant="body2"
+                sx={{
+                  pt: 0.5,
+                  '& .MuiTypography-body1': {
+                    fontSize: '0.875rem'
+                  },
+                  ml: 2
+                }}
+                component={ListItemText}
+                key={responsibility}
+              >
+                • {responsibility}
+              </Typography>
+            ))}
+          </Typography>
+        </>
+      )}
 
-        {responsibilities && (
-          <>
-            <Typography variant="body2" className={classes.subtitle}>
-              Responsibilities
-            </Typography>
-            <Typography variant="body2" component={List} sx={{ paddingTop: 0 }}>
-              {responsibilities.map((responsibility) => (
-                <Typography
-                  variant="body2"
-                  sx={{
-                    pt: 0.5,
-                    '& .MuiTypography-body1': {
-                      fontSize: '0.875rem'
-                    }
-                  }}
-                  component={ListItemText}
-                  key={responsibility}
-                >
-                  > {responsibility}
-                </Typography>
-              ))}
-            </Typography>
-          </>
-        )}
+      {techStack && (
+        <>
+          <Typography variant="body2" sx={{ pt: 1, fontWeight: 'bold' }}>
+            Tech Stack
+          </Typography>
+          <Typography variant="body2" sx={{ color: 'text.secondary', ml: 2 }}>
+            {techStack.join(', ')}
+          </Typography>
+        </>
+      )}
 
-        {techStack && (
-          <>
-            <Typography variant="body2" className={classes.subtitle}>
-              Tech Stack
-            </Typography>
-            <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-              {techStack}
-            </Typography>
-          </>
-        )}
+      {children}
 
-        {children}
+      <CardActions sx={{ pt: 2, px: 0 }}>
+        <Link href={website}>View Company Website</Link>
+      </CardActions>
+    </TimelineContent>
+  </TimelineItem>
+)
 
-        <CardActions>
-          <ButtonLink href={website}>View Website</ButtonLink>
-        </CardActions>
-      </TimelineContent>
-    </TimelineItem>
-  )
+JourneyItemPerm.propTypes = {
+  company: PropTypes.string.isRequired,
+  time: PropTypes.string.isRequired,
+  location: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  responsibilities: PropTypes.arrayOf(PropTypes.string),
+  techStack: PropTypes.arrayOf(PropTypes.string),
+  website: PropTypes.string.isRequired,
+  children: PropTypes.node
 }

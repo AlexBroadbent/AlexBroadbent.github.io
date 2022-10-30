@@ -1,34 +1,15 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Link from '@mui/material/Link'
 import Typography from '@mui/material/Typography'
-import makeStyles from '@mui/styles/makeStyles'
-import createStyles from '@mui/styles/createStyles'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import PropTypes from 'prop-types'
 
-const useStyles = makeStyles((theme) =>
-  createStyles({
-    root: {
-      fontWeight: 700
-    },
-    icon: {
-      fontWeight: 500,
-      marginRight: theme.spacing(2)
-    }
-  })
+export const ImageLink = ({ icon, link }) => (
+  <Typography variant="h3" sx={{ fontWeight: 'bold' }} component={Link} href={link}>
+    <FontAwesomeIcon sx={{ fontWeight: 500, mr: 2 }} icon={icon} />
+  </Typography>
 )
 
 ImageLink.propTypes = {
   icon: PropTypes.any.isRequired,
   link: PropTypes.string.isRequired
-}
-
-export function ImageLink({ icon, link }) {
-  const classes = useStyles()
-
-  return (
-    <Typography variant="h3" className={classes.root} component={Link} href={link}>
-      <FontAwesomeIcon className={classes.icon} icon={icon} />
-    </Typography>
-  )
 }

@@ -1,22 +1,21 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import makeStyles from '@mui/styles/makeStyles'
-import createStyles from '@mui/styles/createStyles'
-import Typography from '@mui/material/Typography'
-import CardActions from '@mui/material/CardActions'
+import TimelineConnector from '@mui/lab/TimelineConnector'
+import TimelineContent from '@mui/lab/TimelineContent'
 import TimelineDot from '@mui/lab/TimelineDot'
 import TimelineItem from '@mui/lab/TimelineItem'
-import TimelineContent from '@mui/lab/TimelineContent'
-import TimelineConnector from '@mui/lab/TimelineConnector'
-import TimelineSeparator from '@mui/lab/TimelineSeparator'
 import TimelineOppositeContent from '@mui/lab/TimelineOppositeContent'
-import { ButtonLink } from '../../component'
+import TimelineSeparator from '@mui/lab/TimelineSeparator'
+import { Link } from '@mui/material'
+import CardActions from '@mui/material/CardActions'
+import Typography from '@mui/material/Typography'
+import createStyles from '@mui/styles/createStyles'
+import makeStyles from '@mui/styles/makeStyles'
+import PropTypes from 'prop-types'
 
 const useStyles = makeStyles((theme) =>
   createStyles({
     content: {
-      paddingTop: 0,
-      paddingBottom: theme.spacing(3)
+      paddingTop: '0 !important',
+      marginBottom: `${theme.spacing(4)} !important`
     },
     title: {
       fontWeight: 700,
@@ -38,7 +37,7 @@ export function JourneyItemProject({ time, title, link, linkText, children }) {
 
   return (
     <TimelineItem>
-      <TimelineOppositeContent variant="body2" color="text.secondary" sx={{ flex: 0.2 }}>
+      <TimelineOppositeContent variant="body2" color="text.secondary" sx={{ flex: 0.12 }}>
         {time}
       </TimelineOppositeContent>
       <TimelineSeparator>
@@ -50,8 +49,8 @@ export function JourneyItemProject({ time, title, link, linkText, children }) {
           {title}
         </Typography>
         {children}
-        <CardActions>
-          <ButtonLink href={link}>{linkText}</ButtonLink>
+        <CardActions sx={{ pt: 1, px: 0 }}>
+          <Link href={link}>{linkText}</Link>
         </CardActions>
       </TimelineContent>
     </TimelineItem>

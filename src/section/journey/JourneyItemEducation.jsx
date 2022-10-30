@@ -13,7 +13,7 @@ import TimelineOppositeContent from '@mui/lab/TimelineOppositeContent'
 const useStyles = makeStyles((theme) =>
   createStyles({
     content: {
-      paddingTop: 0,
+      paddingTop: '0 !important',
       paddingBottom: 0
     },
     title: {
@@ -41,7 +41,7 @@ export function JourneyItemEducation({ time, title, school, children, sx }) {
 
   return (
     <TimelineItem>
-      <TimelineOppositeContent variant="body2" color="text.secondary" sx={{ flex: 0.2 }}>
+      <TimelineOppositeContent variant="body2" color="text.secondary" sx={{ flex: 0.12 }}>
         {time}
       </TimelineOppositeContent>
       <TimelineSeparator>

@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React from 'react'
 import Box from '@mui/material/Box'
 import Grid from '@mui/material/Grid'
@@ -27,9 +28,6 @@ const useStyles = makeStyles((theme) =>
     },
     subtitle: {
       fontWeight: 700
-    },
-    angelListIcon: {
-      backgroundColor: theme.palette.primary.main
     }
   })
 )
@@ -39,7 +37,7 @@ export function Contact() {
 
   return (
     <Section title="Contact">
-      <Box className={classes.root}>
+      <Box className={classes.root} sx={{ display: 'flex' }} flexDirection="column" justifyContent="center" alignItems="center">
         <Box className={classes.titleBox}>
           <Typography variant="h5" className={classes.title}>
             Consult me about your idea or project

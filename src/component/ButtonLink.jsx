@@ -13,7 +13,7 @@ export function ButtonLink({ href, children, internal }) {
   const rel = internal ? '' : 'noopener'
 
   return (
-    <Button variant="outlined" component={Link} href={href} target={target} rel={rel}>
+    <Button variant="contained" component={Link} href={href} target={target} rel={rel}>
       {children}
     </Button>
   )
