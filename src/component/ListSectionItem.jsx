@@ -1,67 +1,19 @@
-import React from 'react'
-import PropTypes from 'prop-types'
 import Box from '@mui/material/Box'
-import Grid from '@mui/material/Grid'
-import Typography from '@mui/material/Typography'
 import CardActions from '@mui/material/CardActions'
-import createStyles from '@mui/styles/createStyles'
-import makeStyles from '@mui/styles/makeStyles'
+import Grid from '@mui/material/Grid'
+import Stack from '@mui/material/Stack'
+import Typography from '@mui/material/Typography'
+import PropTypes from 'prop-types'
+import { useView } from '../hook'
 
-const useStyles = makeStyles((theme) =>
-  createStyles({
-    container: {
-      display: 'flex',
-      minHeight: '100%',
-      overflow: 'hidden',
-      [theme.breakpoints.up('sm')]: {
-        margin: theme.spacing(2),
-        padding: theme.spacing(2),
-        marginTop: 0,
-        paddingTop: 0
-      },
-      [theme.breakpoints.down('sm')]: {
-        padding: theme.spacing(1),
-        marginTop: 0,
-        paddingTop: 0
-      }
-    },
-    content: {
-      padding: theme.spacing(1),
-      [theme.breakpoints.up('sm')]: {},
-      [theme.breakpoints.down('sm')]: {
-        padding: theme.spacing(1, 0)
-      }
-    },
-    title: {
-      [theme.breakpoints.up('sm')]: {
-        margin: theme.spacing(0, 1)
-      },
-      [theme.breakpoints.down('sm')]: {
-        margin: theme.spacing(1),
-        marginTop: theme.spacing(3)
-      }
-    }
-  })
-)
-
-ListSectionItem.propTypes = {
-  image: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  actions: PropTypes.node,
-  children: PropTypes.node.isRequired
-}
-
-export function ListSectionItem({ image, title, actions, children }) {
-  const classes = useStyles()
-
-  return (
-    <Grid container className={classes.container} elevation={3}>
-      <Grid
-        item
-        xs={12}
-        sm={3}
-        sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
-      >
+export const ListSectionItem = ({ image, title, actions, children }) =>
+  useView(
+    <Grid
+      container
+      elevation={3}
+      sx={{ display: 'flex', minHeight: '100%', overflow: 'hidden', p: 2, m: 2, mt: 0, pt: 0 }}
+    >
+      <Grid item sm={3} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
         <Box
           component="img"
           fit="cover"
@@ -70,13 +22,55 @@ export function ListSectionItem({ image, title, actions, children }) {
           sx={{ maxWidth: 250, width: '100%', height: 'auto' }}
         />
       </Grid>
-      <Grid item xs={12} sm={9} className={classes.content}>
-        <Typography variant="h5" className={classes.title}>
+      <Grid item sm={9} sx={{ p: 1, m: 0 }}>
+        <Typography variant="h5" sx={{ margin: (theme) => theme.spacing(0, 1) }}>
           {title}
         </Typography>
         {children}
-        {actions && <CardActions>{actions}</CardActions>}
+        {actions && (
+          <CardActions sx={{ pl: 0 }}>
+            <Stack direction={{ xs: 'column', md: 'row', pt: 1 }} spacing={1}>
+              {actions}
+            </Stack>
+          </CardActions>
+        )}
       </Grid>
+    </Grid>,
+    <Grid
+      container
+      elevation={3}
+      sx={{ display: 'flex', minHeight: '100%', overflow: 'hidden', p: 1, mt: 0, pt: 0 }}
+    >
+      <Grid item xs={12} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        <Box
+          component="img"
+          fit="cover"
+          src={image.startsWith('http') ? image : `${process.env.PUBLIC_URL}/${image}`}
+          alt={title}
+          sx={{ maxWidth: 250, width: '100%', height: 'auto' }}
+        />
+      </Grid>
+      <Stack item xs={12} sx={{ m: 1 }}>
+        <Typography variant="h5" sx={{ m: 1, mt: 3 }}>
+          {title}
+        </Typography>
+
+        {children}
+
+        {actions && (
+          <CardActions sx={{ pl: 0 }}>
+            <Stack direction={{ xs: 'column', md: 'row', pt: 1 }} spacing={1}>
+              {actions}
+            </Stack>
+          </CardActions>
+        )}
+      </Stack>
     </Grid>
   )
+
+ListSectionItem.propTypes = {
+  image: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  actions: PropTypes.arrayOf(PropTypes.node),
+  children: PropTypes.node.isRequired
 }

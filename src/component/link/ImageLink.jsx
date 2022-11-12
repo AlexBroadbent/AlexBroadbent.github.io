@@ -4,7 +4,7 @@ import Typography from '@mui/material/Typography'
 import PropTypes from 'prop-types'
 
 export const ImageLink = ({ icon, link }) => (
-  <Typography variant="h3" sx={{ fontWeight: 'bold' }} component={Link} href={link}>
+  <Typography variant="h1" sx={{ fontWeight: 'bold' }} component={Link} href={link}>
     <FontAwesomeIcon sx={{ fontWeight: 500, mr: 2 }} icon={icon} />
   </Typography>
 )

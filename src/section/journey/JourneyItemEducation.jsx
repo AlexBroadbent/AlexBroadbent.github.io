@@ -1,31 +1,33 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import makeStyles from '@mui/styles/makeStyles'
-import createStyles from '@mui/styles/createStyles'
 import Typography from '@mui/material/Typography'
-import TimelineDot from '@mui/lab/TimelineDot'
-import TimelineItem from '@mui/lab/TimelineItem'
-import TimelineContent from '@mui/lab/TimelineContent'
-import TimelineConnector from '@mui/lab/TimelineConnector'
-import TimelineSeparator from '@mui/lab/TimelineSeparator'
-import TimelineOppositeContent from '@mui/lab/TimelineOppositeContent'
+import PropTypes from 'prop-types'
+import { useView } from '../../hook'
+import { JourneyItem } from './JourneyItem'
+import { JourneyText } from './JourneyText'
 
-const useStyles = makeStyles((theme) =>
-  createStyles({
-    content: {
-      paddingTop: '0 !important',
-      paddingBottom: 0
-    },
-    title: {
-      fontWeight: 700,
-      paddingBottom: theme.spacing(1)
-    },
-    subtitle: {
-      paddingTop: theme.spacing(1),
-      paddingBottom: theme.spacing(0.5),
-      fontWeight: 600
-    }
-  })
+export const JourneyItemEducation = ({ time, title, school, children, contentSx }) =>
+  useView(
+    <JourneyItemEducationDesktop time={time} title={title} school={school} contentSx={contentSx}>
+      {children}
+    </JourneyItemEducationDesktop>,
+    <JourneyItemEducationMobile time={time} title={title} school={school} contentSx={contentSx} />
+  )
+
+const JourneyItemEducationDesktop = ({ time, title, school, children, contentSx }) => (
+  <JourneyItem time={time} title={title} colour="success" contentSx={contentSx}>
+    <Typography variant="subtitle2" sx={{ pt: 1, pb: 0.5, fontWeight: 600 }}>
+      {school}
+    </Typography>
+    {children}
+  </JourneyItem>
+)
+
+const JourneyItemEducationMobile = ({ time, title, school, contentSx }) => (
+  <JourneyItem time={time} title={title} colour="success" contentSx={contentSx}>
+    <JourneyText>Education</JourneyText>
+    <Typography variant="subtitle2" sx={{ pt: 1, pb: 0.5, fontWeight: 600 }}>
+      {school}
+    </Typography>
+  </JourneyItem>
 )
 
 JourneyItemEducation.propTypes = {
@@ -33,30 +35,20 @@ JourneyItemEducation.propTypes = {
   title: PropTypes.string.isRequired,
   school: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
-  sx: PropTypes.object
+  contentSx: PropTypes.any
 }
 
-export function JourneyItemEducation({ time, title, school, children, sx }) {
-  const classes = useStyles()
+JourneyItemEducationDesktop.propTypes = {
+  time: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  school: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
+  contentSx: PropTypes.any
+}
 
-  return (
-    <TimelineItem>
-      <TimelineOppositeContent variant="body2" color="text.secondary" sx={{ flex: 0.12 }}>
-        {time}
-      </TimelineOppositeContent>
-      <TimelineSeparator>
-        <TimelineDot color="success" />
-        <TimelineConnector />
-      </TimelineSeparator>
-      <TimelineContent className={classes.content} {...sx}>
-        <Typography variant="h5" className={classes.title}>
-          {title}
-        </Typography>
-        <Typography variant="subtitle2" className={classes.subtitle}>
-          {school}
-        </Typography>
-        {children}
-      </TimelineContent>
-    </TimelineItem>
-  )
+JourneyItemEducationMobile.propTypes = {
+  time: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  school: PropTypes.string.isRequired,
+  contentSx: PropTypes.any
 }

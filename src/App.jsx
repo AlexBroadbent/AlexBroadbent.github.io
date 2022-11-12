@@ -1,10 +1,9 @@
-import React from 'react'
-import '@fontsource/montserrat'
 import * as Manrope from '@fontsource/manrope'
+import '@fontsource/montserrat'
+import { createTheme, responsiveFontSizes, ThemeProvider } from '@mui/material'
 import Box from '@mui/material/Box'
 import CssBaseline from '@mui/material/CssBaseline'
-import { createTheme, responsiveFontSizes, ThemeProvider } from '@mui/material'
-import { Intro, Contact, Footer, Portfolio } from './section'
+import { Contact, Footer, Intro, Portfolio } from './section'
 import { Blog } from './section/blog'
 import { Journey } from './section/journey'
 import { Testimonials } from './section/testimonial'
@@ -42,12 +41,12 @@ export function App() {
     <ThemeProvider theme={responsiveFontSizes(theme)}>
       <CssBaseline />
 
-      <Box sx={{ mx: 3 }}>
+      <Box sx={{ mx: 2 }}>
         <Intro />
-        <Journey />
         <Portfolio />
-        <Testimonials />
         <Blog />
+        <Journey />
+        <Testimonials />
         <Contact />
         <Footer />
       </Box>

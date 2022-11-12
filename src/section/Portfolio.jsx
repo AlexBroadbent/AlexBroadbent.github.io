@@ -1,15 +1,10 @@
-import React from 'react'
-import makeStyles from '@mui/styles/makeStyles'
-import createStyles from '@mui/styles/createStyles'
-import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
+import createStyles from '@mui/styles/createStyles'
+import makeStyles from '@mui/styles/makeStyles'
 import { ButtonLink, ListSectionItem, Section, TextLink } from '../component'
 
 const useStyles = makeStyles((theme) =>
   createStyles({
-    linkStack: {
-      paddingTop: theme.spacing(1)
-    },
     content: {
       paddingTop: theme.spacing(1),
       paddingBottom: theme.spacing(1)
@@ -22,7 +17,18 @@ export function Portfolio() {
 
   return (
     <Section title="Portfolio">
-      <ListSectionItem image="dashboard.png" title="Handmade in Harpenden Dashboard">
+      <ListSectionItem
+        image="hih-chart.png"
+        title="Handmade in Harpenden Dashboard"
+        actions={[
+          <ButtonLink
+            key={0}
+            href="https://alex-broadbent.medium.com/building-a-custom-finance-dashboard-using-multiple-payment-provider-apis-1fbb25673420"
+          >
+            Read Blog Post on Medium
+          </ButtonLink>
+        ]}
+      >
         <Typography variant="body2" className={classes.content}>
           The client had many sources of income which made it hard to see how well their business is
           performing in real time. A bespoke dashboard was created to account for all the business
@@ -36,20 +42,21 @@ export function Portfolio() {
       </ListSectionItem>
       <ListSectionItem
         image="money.png"
-        title="Money Library"
-        actions={
-          <Stack direction={{ xs: 'column', md: 'row' }} spacing={1} className={classes.linkStack}>
-            <ButtonLink href="https://github.com/AlexBroadbent/money">
-              View Source Code on GitHub
-            </ButtonLink>
-            <ButtonLink href="https://mvnrepository.com/artifact/com.abroadbent/money-core">
-              View Artifacts on Maven Central
-            </ButtonLink>
-            <ButtonLink href="https://alex-broadbent.medium.com/publishing-an-anti-bikeshedding-money-library-to-maven-central-c997a7ce97a3">
-              Read Blog Post on Medium
-            </ButtonLink>
-          </Stack>
-        }
+        title="Money Utility Library"
+        actions={[
+          <ButtonLink key={0} href="https://github.com/AlexBroadbent/money">
+            View Source Code on GitHub
+          </ButtonLink>,
+          <ButtonLink key={1} href="https://mvnrepository.com/artifact/com.abroadbent/money-core">
+            View Artifacts on Maven Central
+          </ButtonLink>,
+          <ButtonLink
+            key={2}
+            href="https://alex-broadbent.medium.com/publishing-an-anti-bikeshedding-money-library-to-maven-central-c997a7ce97a3"
+          >
+            Read Blog Post on Medium
+          </ButtonLink>
+        ]}
       >
         <Typography variant="body2" className={classes.content}>
           After working around different companies which all had an implementation of what “money”
@@ -66,21 +73,22 @@ export function Portfolio() {
         </Typography>
       </ListSectionItem>
       <ListSectionItem
-        image="jackson-dsl-2.png"
+        image="json-dsl.png"
         title="JSON DSL"
-        actions={
-          <Stack direction={{ xs: 'column', md: 'row' }} spacing={1} className={classes.linkStack}>
-            <ButtonLink href="https://github.com/AlexBroadbent/json-dsl">
-              View Source Code on GitHub
-            </ButtonLink>
-            <ButtonLink href="https://mvnrepository.com/artifact/com.abroadbent/jackson-dsl">
-              View Artifacts on Maven Central
-            </ButtonLink>
-            <ButtonLink href="https://alex-broadbent.medium.com/publishing-an-anti-bikeshedding-money-library-to-maven-central-c997a7ce97a3">
-              Read Blog Post on Medium
-            </ButtonLink>
-          </Stack>
-        }
+        actions={[
+          <ButtonLink key={0} href="https://github.com/AlexBroadbent/json-dsl">
+            View Source Code on GitHub
+          </ButtonLink>,
+          <ButtonLink key={1} href="https://mvnrepository.com/artifact/com.abroadbent/jackson-dsl">
+            View Artifacts on Maven Central
+          </ButtonLink>,
+          <ButtonLink
+            key={2}
+            href="https://alex-broadbent.medium.com/publishing-an-anti-bikeshedding-money-library-to-maven-central-c997a7ce97a3"
+          >
+            Read Blog Post on Medium
+          </ButtonLink>
+        ]}
       >
         <Typography variant="body2" className={classes.content}>
           I found the builder pattern of Jackson’s ObjectMapper to be cumbersome, so I wrote a
@@ -91,19 +99,20 @@ export function Portfolio() {
       <ListSectionItem
         image="timestamp-generator.png"
         title="Timestamp Generator Plugin"
-        actions={
-          <Stack direction={{ xs: 'column', md: 'row' }} spacing={1} className={classes.linkStack}>
-            <ButtonLink href="https://github.com/AlexBroadbent/timestamp-generator-plugin">
-              View Source Code on GitHub
-            </ButtonLink>
-            <ButtonLink href="https://plugins.jetbrains.com/plugin/13012-timestamp-generator">
-              View Plugin on Jetbrains Marketplace
-            </ButtonLink>
-            <ButtonLink href="https://alex-broadbent.medium.com/writing-an-intellij-plugin-for-inserting-timestamps-2cbe6f09b4f8">
-              Read Blog Post on Medium
-            </ButtonLink>
-          </Stack>
-        }
+        actions={[
+          <ButtonLink key={0} href="https://github.com/AlexBroadbent/timestamp-generator-plugin">
+            View Source Code on GitHub
+          </ButtonLink>,
+          <ButtonLink key={1} href="https://plugins.jetbrains.com/plugin/13012-timestamp-generator">
+            View Plugin on Jetbrains Marketplace
+          </ButtonLink>,
+          <ButtonLink
+            key={2}
+            href="https://alex-broadbent.medium.com/writing-an-intellij-plugin-for-inserting-timestamps-2cbe6f09b4f8"
+          >
+            Read Blog Post on Medium
+          </ButtonLink>
+        ]}
       >
         <Typography variant="body2" className={classes.content}>
           I wrote a plugin for all Jetbrains IDEs (IntelliJ, WebStorm, etc.) that can generate a

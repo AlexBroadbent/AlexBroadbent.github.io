@@ -1,31 +1,31 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import makeStyles from '@mui/styles/makeStyles'
-import createStyles from '@mui/styles/createStyles'
 import Typography from '@mui/material/Typography'
-import TimelineDot from '@mui/lab/TimelineDot'
-import TimelineItem from '@mui/lab/TimelineItem'
-import TimelineContent from '@mui/lab/TimelineContent'
-import TimelineConnector from '@mui/lab/TimelineConnector'
-import TimelineSeparator from '@mui/lab/TimelineSeparator'
-import TimelineOppositeContent from '@mui/lab/TimelineOppositeContent'
+import PropTypes from 'prop-types'
+import { useView } from '../../hook'
+import { JourneyItem } from './JourneyItem'
+import { JourneyText } from './JourneyText'
+import { TechStack } from './TechStack'
 
-const useStyles = makeStyles((theme) =>
-  createStyles({
-    content: {
-      paddingTop: '0 !important',
-      marginBottom: `${theme.spacing(4)} !important`
-    },
-    title: {
-      fontWeight: 700,
-      paddingBottom: theme.spacing(1)
-    },
-    subtitle: {
-      paddingTop: theme.spacing(1),
-      paddingBottom: theme.spacing(0.5),
-      fontWeight: 600
-    }
-  })
+export const JourneyItemContract = ({ time, client, title, techStack, children }) =>
+  useView(
+    <JourneyItemContractDesktop time={time} client={client} title={title} techStack={techStack}>
+      {children}
+    </JourneyItemContractDesktop>,
+    <JourneyItemContractMobile time={time} client={client} title={title} />
+  )
+
+const JourneyItemContractDesktop = ({ time, client, title, techStack, children }) => (
+  <JourneyItem time={time} title={`${title} for ${client}`} colour="info">
+    {children}
+    {techStack && <TechStack stack={techStack} />}
+  </JourneyItem>
+)
+const JourneyItemContractMobile = ({ time, client, title }) => (
+  <JourneyItem time={time} title={title} colour="info">
+    <Typography variant="body1" gutterBottom>
+      For {client}
+    </Typography>
+    <JourneyText>Contractor</JourneyText>
+  </JourneyItem>
 )
 
 JourneyItemContract.propTypes = {
@@ -36,36 +36,16 @@ JourneyItemContract.propTypes = {
   children: PropTypes.node
 }
 
-export function JourneyItemContract({ time, client, title, techStack, children }) {
-  const classes = useStyles()
+JourneyItemContractDesktop.propTypes = {
+  time: PropTypes.string.isRequired,
+  client: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  techStack: PropTypes.arrayOf(PropTypes.string),
+  children: PropTypes.node
+}
 
-  return (
-    <TimelineItem>
-      <TimelineOppositeContent variant="body2" color="text.secondary" sx={{ flex: 0.12 }}>
-        {time}
-      </TimelineOppositeContent>
-      <TimelineSeparator>
-        <TimelineDot color="info" />
-        <TimelineConnector />
-      </TimelineSeparator>
-      <TimelineContent className={classes.content}>
-        <Typography variant="h5" className={classes.title}>
-          {title} for {client}
-        </Typography>
-
-        {children}
-
-        {techStack && (
-          <>
-            <Typography variant="body2" className={classes.subtitle} fontWeight="700">
-              Tech Stack
-            </Typography>
-            <Typography variant="body2" sx={{ color: 'text.secondary', ml: 2 }}>
-              {techStack.join(', ')}
-            </Typography>
-          </>
-        )}
-      </TimelineContent>
-    </TimelineItem>
-  )
+JourneyItemContractMobile.propTypes = {
+  time: PropTypes.string.isRequired,
+  client: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired
 }

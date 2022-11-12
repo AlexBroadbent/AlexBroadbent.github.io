@@ -1,26 +1,42 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import makeStyles from '@mui/styles/makeStyles'
-import createStyles from '@mui/styles/createStyles'
 import Box from '@mui/material/Box'
 import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
+import PropTypes from 'prop-types'
 import { ButtonLink, ListSectionItem } from '../../component'
 
-const useStyles = makeStyles((theme) =>
-  createStyles({
-    quote: {
-      color: theme.palette.text.secondary,
-      marginBlockStart: theme.spacing(2),
-      marginBlockEnd: theme.spacing(1),
-      marginInlineStart: theme.spacing(1),
-      marginInlineEnd: theme.spacing(2)
-    },
-    signature: {
-      color: theme.palette.grey[800],
-      marginBottom: theme.spacing(2)
-    }
-  })
+export const TestimonialItem = ({ client, name, position, imageUrl, website, children }) => (
+  <ListSectionItem
+    title={client}
+    image={imageUrl}
+    actions={[
+      <ButtonLink key={0} href={website}>
+        Visit Client Website
+      </ButtonLink>
+    ]}
+  >
+    <Stack>
+      <Box
+        sx={{
+          color: 'text.secondary',
+          marginBlockStart: 2,
+          marginBlockEnd: 1,
+          marginInlineStart: 1,
+          marginInlineEnd: 2
+        }}
+      >
+        {children}
+      </Box>
+
+      <Box sx={{ color: 'grey.800', mb: 2 }}>
+        <Typography variant="subtitle1" component="span" sx={{ lineHeight: '24px' }}>
+          &#8212; {name}
+        </Typography>
+        <Typography variant="p" component="span">
+          , {position}
+        </Typography>
+      </Box>
+    </Stack>
+  </ListSectionItem>
 )
 
 TestimonialItem.propTypes = {
@@ -30,31 +46,4 @@ TestimonialItem.propTypes = {
   imageUrl: PropTypes.string.isRequired,
   website: PropTypes.string.isRequired,
   children: PropTypes.any
-}
-
-export function TestimonialItem({ client, name, position, imageUrl, website, children }) {
-  const classes = useStyles()
-
-  return (
-    <ListSectionItem
-      title={client}
-      image={imageUrl}
-      actions={<ButtonLink href={website}>Visit Client Website</ButtonLink>}
-    >
-      <Stack>
-        <blockquote cite={website} className={classes.quote}>
-          {children}
-        </blockquote>
-
-        <Box className={classes.signature}>
-          <Typography variant="subtitle1" component="span" sx={{ lineHeight: '24px' }}>
-            &#8212; {name}
-          </Typography>
-          <Typography variant="p" component="span">
-            , {position}
-          </Typography>
-        </Box>
-      </Stack>
-    </ListSectionItem>
-  )
 }
