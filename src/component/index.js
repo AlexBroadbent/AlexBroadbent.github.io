@@ -1,3 +1,3 @@
 export * from './link'
-export * from './ListSectionItem'
-export * from './Section'
+export * from './section'
+export * from './text'

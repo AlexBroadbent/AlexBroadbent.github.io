@@ -13,8 +13,28 @@ export const ButtonLink = ({ href, children, internal, ...other }) => (
   </Button>
 )
 
+export const BlogLink = ({ href }) => <ButtonLink href={href}>Read Blog Post</ButtonLink>
+
+export const CodeLink = ({ href }) => <ButtonLink href={href}>View Code</ButtonLink>
+
+export const ArtifactLink = ({ href }) => (
+  <ButtonLink href={href}>View Artifacts on Maven Central</ButtonLink>
+)
+
 ButtonLink.propTypes = {
   href: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
   internal: PropTypes.bool
+}
+
+BlogLink.propTypes = {
+  href: PropTypes.string.isRequired
+}
+
+CodeLink.propTypes = {
+  href: PropTypes.string.isRequired
+}
+
+ArtifactLink.propTypes = {
+  href: PropTypes.string.isRequired
 }

@@ -1,5 +1,5 @@
 import TimelineDot from '@mui/lab/TimelineDot'
-import Grid from '@mui/material/Grid'
+import Grid from '@mui/material/Unstable_Grid2'
 import Typography from '@mui/material/Typography'
 import { useView } from '../../hook'
 

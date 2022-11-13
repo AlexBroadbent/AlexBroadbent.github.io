@@ -2,10 +2,10 @@ import Box from '@mui/material/Box'
 import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
 import PropTypes from 'prop-types'
-import { ButtonLink, ListSectionItem } from '../../component'
+import { ButtonLink, ListSectionCard } from '../../component'
 
 export const TestimonialItem = ({ client, name, position, imageUrl, website, children }) => (
-  <ListSectionItem
+  <ListSectionCard
     title={client}
     image={imageUrl}
     actions={[
@@ -13,6 +13,7 @@ export const TestimonialItem = ({ client, name, position, imageUrl, website, chi
         Visit Client Website
       </ButtonLink>
     ]}
+    md={12}
   >
     <Stack>
       <Box
@@ -36,7 +37,7 @@ export const TestimonialItem = ({ client, name, position, imageUrl, website, chi
         </Typography>
       </Box>
     </Stack>
-  </ListSectionItem>
+  </ListSectionCard>
 )
 
 TestimonialItem.propTypes = {
