@@ -59,9 +59,11 @@ const JourneyItemPermDesktop = ({
 
     {children}
 
-    <CardActions sx={{ py: 1, pl: 0 }}>
-      <JourneyLink href={website}>View Company Website</JourneyLink>
-    </CardActions>
+    {website && (
+      <CardActions sx={{ py: 1, pl: 0 }}>
+        <JourneyLink href={website}>View Company Website</JourneyLink>
+      </CardActions>
+    )}
   </JourneyItem>
 )
 

@@ -3,7 +3,6 @@ import { Button } from '@mui/material'
 
 export const ButtonLink = ({ href, children, internal, ...other }) => (
   <Button
-    variant="outlined"
     href={href}
     target={internal ? '' : '_blank'}
     rel={internal ? '' : 'noopener'}
