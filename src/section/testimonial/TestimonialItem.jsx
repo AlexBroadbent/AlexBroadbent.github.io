@@ -4,15 +4,18 @@ import Typography from '@mui/material/Typography'
 import PropTypes from 'prop-types'
 import { ButtonLink, ListSectionCard } from '../../component'
 
-export const TestimonialItem = ({ client, name, position, imageUrl, website, children }) => (
+export const TestimonialItem = ({ client, name, position, website, children }) => (
   <ListSectionCard
     title={client}
-    image={imageUrl}
-    actions={[
-      <ButtonLink key={0} href={website}>
-        Visit Client Website
-      </ButtonLink>
-    ]}
+    actions={
+      website
+        ? [
+            <ButtonLink key={0} href={website}>
+              Visit Client Website
+            </ButtonLink>
+          ]
+        : []
+    }
     md={12}
   >
     <Stack>
@@ -28,11 +31,11 @@ export const TestimonialItem = ({ client, name, position, imageUrl, website, chi
         {children}
       </Box>
 
-      <Box sx={{ color: 'grey.800', mb: 2 }}>
-        <Typography variant="subtitle1" component="span" sx={{ lineHeight: '24px' }}>
+      <Box>
+        <Typography variant="subtitle1" component="span">
           &#8212; {name}
         </Typography>
-        <Typography variant="p" component="span">
+        <Typography variant="p" component="span" sx={{ color: 'text.secondary' }}>
           , {position}
         </Typography>
       </Box>
@@ -44,7 +47,6 @@ TestimonialItem.propTypes = {
   client: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   position: PropTypes.string.isRequired,
-  imageUrl: PropTypes.string.isRequired,
-  website: PropTypes.string.isRequired,
+  website: PropTypes.string,
   children: PropTypes.any
 }

@@ -1,1 +1,1 @@
-export const fonts = ['"Manrope"', '"Montserrat"', '"Roboto"', 'sans-serif'].join(',')
+export const fonts = ['"Manrope"', '"Roboto"', 'sans-serif'].join(',')

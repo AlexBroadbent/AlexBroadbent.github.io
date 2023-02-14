@@ -5,22 +5,34 @@ import { JourneyItem } from './JourneyItem'
 import { JourneyText } from './JourneyText'
 import { TechStack } from './TechStack'
 
-export const JourneyItemContract = ({ time, client, title, techStack, children }) =>
+export const JourneyItemContract = ({ time, client, title, techStack, children, ...rest }) =>
   useView(
-    <JourneyItemContractDesktop time={time} client={client} title={title} techStack={techStack}>
+    <JourneyItemContractDesktop
+      time={time}
+      client={client}
+      title={title}
+      techStack={techStack}
+      {...rest}
+    >
       {children}
     </JourneyItemContractDesktop>,
-    <JourneyItemContractMobile time={time} client={client} title={title} />
+    <JourneyItemContractMobile time={time} client={client} title={title} {...rest} />
   )
 
-const JourneyItemContractDesktop = ({ time, client, title, techStack, children }) => (
-  <JourneyItem time={time} title={`${title} for ${client}`} colour="info">
+const JourneyItemContractDesktop = ({ time, client, title, techStack, children, ...rest }) => (
+  <JourneyItem
+    time={time}
+    title={`${title} for ${client}`}
+    colour="secondary"
+    variant="outlined"
+    {...rest}
+  >
     {children}
     {techStack && <TechStack stack={techStack} />}
   </JourneyItem>
 )
-const JourneyItemContractMobile = ({ time, client, title }) => (
-  <JourneyItem time={time} title={title} colour="info">
+const JourneyItemContractMobile = ({ time, client, title, ...rest }) => (
+  <JourneyItem time={time} title={title} colour="secondary" variant="outlined" {...rest}>
     <Typography variant="body1" gutterBottom>
       For {client}
     </Typography>

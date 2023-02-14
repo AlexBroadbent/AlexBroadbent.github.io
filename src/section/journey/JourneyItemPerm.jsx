@@ -23,7 +23,10 @@ export const JourneyItemPerm = ({
       company={company}
       time={time}
       location={location}
+      techStack={techStack}
+      responsibilities={responsibilities}
       title={title}
+      website={website}
       children={children}
     />,
     <JourneyItemPermMobile
@@ -48,7 +51,7 @@ const JourneyItemPermDesktop = ({
   website,
   children
 }) => (
-  <JourneyItem time={time} title={company} colour="secondary">
+  <JourneyItem time={time} title={company} colour="primary">
     <Typography variant="body1">{title}</Typography>
     <Typography variant="body2" gutterBottom>
       {location}
@@ -68,7 +71,7 @@ const JourneyItemPermDesktop = ({
 )
 
 const JourneyItemPermMobile = ({ company, time, location, title, children }) => (
-  <JourneyItem time={time} title={company} colour="secondary">
+  <JourneyItem time={time} title={company} colour="primary">
     <Typography variant="body1">{title}</Typography>
     <JourneyText>Permanent</JourneyText>
     <Typography variant="body2" gutterBottom sx={{ mt: 1 }}>

@@ -1,7 +1,5 @@
 import React from 'react'
 import { createRoot } from 'react-dom/client'
-import '@fontsource/manrope'
-import '@fontsource/montserrat'
 import { App } from './App'
 
 const root = createRoot(document.getElementById('root'))

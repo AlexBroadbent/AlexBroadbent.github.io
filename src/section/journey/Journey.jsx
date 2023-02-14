@@ -13,30 +13,31 @@ export const Journey = () => (
     <Timeline>
       <JourneyItemPerm
         company="SAPI"
-        time="Sep 22 to Now"
+        time="Sep 2022 to Now"
         location="London"
         title="Principal Software Engineer"
         responsibilities={[
-          'Joined as second technical employee, working full stack across frontend and backend services',
-          'Architecting out the platform and building integrations with new clients',
-          'Creating an extensible platform while catering for changing business requirements'
+          'Joined as employee #3',
+          'Reporting directly to the CTO',
+          'Architecting an extensible platform while catering for changing business requirements'
         ]}
         techStack={[
           'TypeScript',
           'NodeJS',
+          'React',
+          'NextJS',
           'Fastify',
-          'Postgres',
+          'PostgreSQL',
           'REST APIs',
-          'SQL',
           'AWS',
           'Copilot',
+          'Playwright',
           'Jest',
           'GitHub Actions',
+          'Linear',
           'NPM',
-          'Git',
-          'Linear'
+          'Git'
         ]}
-        website="https://www.sapi.com"
       />
       <JourneyItemContract
         client="Handmade in Harpenden"
@@ -59,6 +60,7 @@ export const Journey = () => (
           'Yarn',
           'Git'
         ]}
+        sx={{ mb: 5 }}
       >
         <Typography variant="body2" paragraph>
           A portal for combining all sources of income into a single dashboard. As a small business,
@@ -76,9 +78,9 @@ export const Journey = () => (
         location="Welwyn Garden City, Hertfordshire"
         title="Senior Software Engineer"
         responsibilities={[
-          'Currently in the Quote HTTP API team, growing a real-time pipeline on a multi-national scale.',
-          'Led the launch of Delivery Saver Service in Ireland which involved architecting multiple solutions.',
-          'Regularly involved in hiring, on-boarding new engineers, work structure and allocation.'
+          'Joined the Quote REST API team, growing a real-time pipeline on a multi-national scale',
+          'Led a 6 month project launching the Delivery Saver service (subscription model) in Ireland',
+          'Managed hiring, on-boarding new engineers, work structure and allocation within the team'
         ]}
         techStack={[
           'Java',
@@ -97,18 +99,17 @@ export const Journey = () => (
           'Git',
           'Jira'
         ]}
-        website="https://www.tesco.com"
       />
       <JourneyItemProject
         time="Apr 2020"
-        title="Started Blogging"
+        title="Published first blog post"
         link="https://alex-broadbent.medium.com"
         linkText="View all articles on Medium"
       >
         <Typography variant="body2" paragraph>
-          As a frequent reader of blog posts in order to discover new language features or to solve
-          issues that I have in my career, it made sense to write my own blog posts in order to give
-          back to the community and share my experiences in the hopes of helping future developers.
+          As a frequent reader of blog posts, it made sense to write my own blog posts in order to
+          give back to the community and share my experiences in the hopes of helping other
+          engineers.
         </Typography>
         <Typography variant="body2" paragraph>
           My posts have been published from my previous workplaces and personal projects, and have
@@ -127,10 +128,10 @@ export const Journey = () => (
         company="Freetrade"
         time="May 2019"
         location="London"
-        title="Full-Stack Mid-Level Software Engineer"
+        title="Full-Stack Software Engineer"
         responsibilities={[
-          'Worked full-stack across a TypeScript server with native Android and iOS apps.',
-          'Delivered features like Freeshares, SIPPs, OpenBanking deposits and Subscriptions in the Growth Team.'
+          'Expanded on both backend REST API and frontend native Android and iOS apps',
+          'Delivered Freeshares, SIPPs and Freetrade Plus (subscription model) in the Growth Team'
         ]}
         techStack={[
           'TypeScript',
@@ -153,16 +154,16 @@ export const Journey = () => (
           'Yarn',
           'Jira'
         ]}
-        website="https://freetrade.io"
       />
       <JourneyItemPerm
         company="Flux"
         time="Jan 2018"
         location="London"
-        title="Backend Mid-Level Software Engineer"
+        title="Backend Software Engineer"
         responsibilities={[
-          'Having joined as the third developer, my focus was on scaling with demand, maintaining uptime and an accurate receipt match rate.',
-          'Worked on integrating and maintaining bank and retail partners, such as Starling, Monzo, Barclays, KFC and Just Eat.'
+          'Joined as employee #6',
+          'Scaled REST API and increased receipt match rate',
+          'Integrated Barclays and maintained banking-specific SLAs'
         ]}
         techStack={[
           'Kotlin',
@@ -187,7 +188,6 @@ export const Journey = () => (
           'Git',
           'Gradle'
         ]}
-        website="https://tryflux.com"
       />
       <JourneyItemPerm
         company="Dexda"
@@ -195,8 +195,9 @@ export const Journey = () => (
         location="London"
         title="Backend Mid-Level Software Engineer"
         responsibilities={[
-          'Contributed towards defining the core architecture using machine learning',
-          'First exposure to being responsible for designing, implementing and improving the backend REST APIs'
+          'Joined as employee #2',
+          'Architected the majority of backend core services',
+          'Delivered projects '
         ]}
         techStack={[
           'Java',
@@ -218,7 +219,6 @@ export const Journey = () => (
           'Git',
           'Maven'
         ]}
-        website="https://dexda.io"
       />
       <JourneyItemEducation
         time="Jul 2016"
@@ -232,10 +232,9 @@ export const Journey = () => (
       </JourneyItemEducation>
       <JourneyItemPerm
         company="ServiceNow"
-        time="Aug 2014 to Aug 2015"
+        time="Aug 2014-15"
         location="Egham, Surrey"
         title="Placement Year: Application Developer"
-        website="https://www.servicenow.com"
       />
       <JourneyItemEducation
         time="Sep 2011"

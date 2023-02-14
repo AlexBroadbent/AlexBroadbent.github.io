@@ -14,7 +14,7 @@ export const JourneyItemProject = ({ time, title, link, linkText, children }) =>
   )
 
 const JourneyItemProjectDesktop = ({ time, title, link, linkText, children }) => (
-  <JourneyItem time={time} title={title} colour="warning">
+  <JourneyItem time={time} title={title} colour="warning" variant="outlined">
     {children}
     <CardActions sx={{ pt: 1, px: 0 }}>
       <ButtonLink href={link}>{linkText}</ButtonLink>
@@ -23,7 +23,7 @@ const JourneyItemProjectDesktop = ({ time, title, link, linkText, children }) =>
 )
 
 const JourneyItemProjectMobile = ({ time, title, link, linkText }) => (
-  <JourneyItem time={time} title={title} colour="warning">
+  <JourneyItem time={time} title={title} colour="warning" variant="outlined">
     <JourneyText>Project</JourneyText>
     <ButtonLink sx={{ m: 0, p: 0, mt: 1, fontWeight: 500 }} href={link}>
       {linkText}
